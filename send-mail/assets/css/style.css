@@ -1,6 +1,9 @@
 body {
   background: linear-gradient(to top, #a95487, #24b0c7);
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input,
@@ -8,18 +11,13 @@ textarea {
   box-shadow: none !important;
 }
 
-.container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 500px;
-  transform: translate(-50%, -50%);
+.header h2 {
+  font-size: 40px;
+  font-weight: 600;
 }
 
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.header p {
+  font-size: 18px;
 }
 
 .row .mail-form {
@@ -37,4 +35,5 @@ textarea {
 .row .mail-form .textarea {
   min-height: 200px;
   font-size: 15px;
+  resize: none;
 }

@@ -1,0 +1,16 @@
+body {
+  background: linear-gradient(to top, #a95487, #24b0c7);
+}
+
+.form-control {
+  box-shadow: none !important;
+}
+
+.row {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

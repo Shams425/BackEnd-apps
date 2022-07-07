@@ -1,16 +1,40 @@
 body {
   background: linear-gradient(to top, #a95487, #24b0c7);
+  position: relative;
 }
 
-.form-control {
+input,
+textarea {
   box-shadow: none !important;
 }
 
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 500px;
+  transform: translate(-50%, -50%);
+}
+
 .row {
-  width: 100vw;
-  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.row .mail-form {
+  max-width: 550px;
+  border-radius: 15px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.row .mail-form .form-control {
+  height: 43px;
+  font-size: 15px;
+}
+
+.row .mail-form .textarea {
+  min-height: 200px;
+  font-size: 15px;
 }

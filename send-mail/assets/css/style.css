@@ -41,3 +41,7 @@ textarea {
 .row .mail-form input[type="text"] {
   border: none;
 }
+
+.row .mail-form textarea {
+  resize: both;
+}

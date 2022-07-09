@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
 
-  <title>Sending email via localhost</title>
+  <title>Sending email using Mailer library</title>
 </head>
 <body>
     <div class="container">

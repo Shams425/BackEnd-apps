@@ -37,3 +37,7 @@ textarea {
   font-size: 15px;
   resize: none;
 }
+
+.row .mail-form input[type="text"] {
+  border: none;
+}

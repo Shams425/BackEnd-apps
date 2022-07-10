@@ -26,38 +26,46 @@
     <div class="container">
       <div class="row">
         <section class="form signup">
-          <form action="#">
-            <div class="alert alert-danger">Error text</div>
+          <div class="wrapper">
+            <form action="#">
+              <div class="alert alert-danger">Error text</div>
+  
+              <!-- form data start -->
+              <div class="form-group mb-3">
+                <label for="text" class="mb-2">First Name</label>
+                <input type="text" name="firstName" id="" class="form-control" placeholder="Your First Name"/>
+              </div>
+              <div class="form-group mb-3">
+                <label for="text" class="mb-2">Last Name</label>
+                <input type="text" name="lastName" id="" class="form-control" placeholder="Your Last Name"/>
+              </div>
+              <div class="form-group mb-3">
+                <label for="email" class="mb-2">Email Address</label>
+                <input type="email" name="email" id="" class="form-control" placeholder="Enter You E-mail"/>
+              </div>
+              <div class="form-group mb-3">
+                <label for="password" class="mb-2">Password</label>
+                <input type="password" name="password" id="" class="form-control" placeholder="Enter Your Password"/>
+              </div>
+              <div class="form-group mb-3">
+                <label for="password" class="mb-2">Rewrite Password</label>
+                <input type="password" name="rePassword" id="" class="form-control" placeholder="Rewrite Your Password"/>
+              </div>
+              <div class="form-group mb-3">
+                <label for="file" class="mb-2">Select Profile Img</label>
+                <input type="file" name="imgFile" id="" class="form-control" accept="image/*"/>
+              </div>
+              <div class="form-group mt-5 text-end">
+                <input type="submit" name="send" id="" class="btn btn-dark" Value="Start Chatting"/>
+              </div>
+            </form>
+          </div>
 
-            <!-- form data start -->
-            <div class="form-group mb-3">
-              <label for="text" class="mb-2">First Name</label>
-              <input type="text" name="firstName" id="" class="form-control" placeholder="Your First Name"/>
-            </div>
-            <div class="form-group mb-3">
-              <label for="text" class="mb-2">Last Name</label>
-              <input type="text" name="lastName" id="" class="form-control" placeholder="Your Last Name"/>
-            </div>
-            <div class="form-group mb-3">
-              <label for="email" class="mb-2">Email Address</label>
-              <input type="email" name="email" id="" class="form-control" placeholder="Enter You E-mail"/>
-            </div>
-            <div class="form-group mb-3">
-              <label for="password" class="mb-2">Password</label>
-              <input type="password" name="password" id="" class="form-control" placeholder="Enter Your Password"/>
-            </div>
-            <div class="form-group mb-3">
-              <label for="password" class="mb-2">Rewrite Password</label>
-              <input type="password" name="rePassword" id="" class="form-control" placeholder="Rewrite Your Password"/>
-            </div>
-            <div class="form-group mb-3">
-              <label for="file" class="mb-2">
-                <p>Select Profile Img</p>
-                <i class="fas fa-upload"></i>
-              </label>
-              <input type="file" name="imgFile" id="" class="form-control" style="display:none"/>
-            </div>
-          </form>
+          <!-- prevues user -->
+          <div class="link">
+            Already signed up ? 
+            <a href="#">Login now</a>
+          </div>
         </section>
       </div>
     </div>

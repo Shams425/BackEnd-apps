@@ -10,6 +10,12 @@ body {
   background-color: #f7f7f7;
 }
 
+section.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .form-control {
   box-shadow: none !important;
 }
@@ -19,11 +25,33 @@ a {
 }
 
 /*************************** 
-***form section 
+***form wrapper
 ***************************/
 .wrapper {
   width: 450px;
   box-shadow: 0 0 125px 0 rgba(0, 0, 0, 0.2), 0 32 64px -48px rgba(0, 0, 0, 0.5);
   background-color: #fff;
   padding: 20px;
+  border-radius: 15px;
+}
+
+.wrapper .title h1 {
+  font-weight: 600;
+  font-size: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.wrapper .nameDetails .firstName {
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 990px) {
+  .wrapper .nameDetails .firstName,
+  .wrapper .nameDetails .lastName {
+    width: 100%;
+  }
+  .wrapper .nameDetails .lastName {
+    padding-right: 10px;
+  }
 }

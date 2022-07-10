@@ -1,5 +1,11 @@
 /* global rules */
 
+:root {
+  --lineColor: #e6e6e6;
+  --background: #f7f7f7;
+  --statusDot: #468669;
+}
+
 body {
   font-family: "Poppins" "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
@@ -7,10 +13,10 @@ body {
   justify-content: center;
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #f7f7f7;
+  background-color: var(--background);
 }
 
-section.form {
+section.contentContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +31,7 @@ a {
 }
 
 /*************************** 
-***form wrapper
+***form login/sign up wrapper
 ***************************/
 .wrapper {
   width: 450px;
@@ -40,7 +46,7 @@ a {
   font-weight: 600;
   font-size: 30px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid var(--lineColor);
 }
 
 .wrapper .nameDetails .firstName {
@@ -75,4 +81,94 @@ a {
   height: 50px;
   font-size: 23px;
   font-weight: 600;
+}
+
+/*************************** 
+***Users content
+***************************/
+
+.wrapper img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.users header,
+.usersList a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--lineColor);
+}
+
+:is(.users, .usersList) .content {
+  display: flex;
+  align-items: center;
+}
+
+.users header .content img {
+  height: 50px;
+  width: 50px;
+}
+
+:is(.users, .usersList) .details {
+  margin-left: 15px;
+}
+
+:is(.users, .usersList) .details span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
+
+.users header .logout {
+  margin-bottom: 30px;
+}
+
+.users .search {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.users .search .text {
+  font-size: 18px;
+}
+
+.users .search input {
+  width: calc(100% - 42.5px);
+  position: absolute;
+  height: 40px;
+  font-size: 18px;
+  padding: 0 16px;
+  border-radius: 10px 0 0 10px;
+}
+
+.users .search button {
+  border-radius: 0 10px 10px 0;
+  height: 40px;
+}
+
+/*************************** 
+***Users content
+***************************/
+
+.wrapper .usersList {
+}
+
+.wrapper .usersList a {
+  padding-right: 15px;
+}
+
+.wrapper .usersList a .content img {
+  width: 35px;
+  height: 35px;
+}
+
+.usersList a .showStatus {
+  font-size: 12px;
+  color: var(--statusDot);
 }

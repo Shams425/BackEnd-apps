@@ -22,7 +22,8 @@ section.contentContainer {
   justify-content: center;
 }
 
-.form-control {
+.form-control,
+.btn {
   box-shadow: none !important;
 }
 
@@ -37,6 +38,18 @@ a {
 .wrapper header {
   padding: 20px 20px 0 20px;
   margin-bottom: 10px;
+}
+
+.contentContainer .alert {
+  display: none;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.contentContainer .alert-info {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 /*************************** 
@@ -84,11 +97,17 @@ a {
   cursor: pointer;
 }
 
+.wrapper .password i.active::before {
+  content: "\f070"; /* this is unicode for the icon */
+  color: #333;
+}
+
 .wrapper form .button input {
   width: 90%;
   height: 50px;
   font-size: 23px;
   font-weight: 600;
+  box-shadow: none;
 }
 
 /*************************** 

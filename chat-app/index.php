@@ -30,10 +30,14 @@
             <div class="title">
               <h1>Realtime Chat app</h1>
             </div>
-            <form action="#">
-              <div class="alert alert-danger mt-3 text-center">Error text</div>
+            <form action="#" enctype="multipart/form-data" method="POST">
+              <!-- signup status messages -->
+              <div class="alert alert-danger mt-3 text-center">
+                Error Message
+              </div>
+              <div class="alert alert-info mt-3 text-center">Error Message</div>
 
-              <!-- form data start -->
+              <!-- form data -->
               <div class="nameDetails d-flex flex-wrap">
                 <div class="firstName col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
@@ -41,7 +45,7 @@
                     <input
                       type="text"
                       name="firstName"
-                      id=""
+                      required="true"
                       class="form-control"
                       placeholder="Your First Name"
                     />
@@ -53,60 +57,58 @@
                     <input
                       type="text"
                       name="lastName"
-                      id=""
+                      required="true"
                       class="form-control"
                       placeholder="Your Last Name"
                     />
                   </div>
                 </div>
               </div>
-              <div class="form-group mb-3">
+              <div class="email form-group mb-3">
                 <label for="email" class="mb-2">Email Address</label>
                 <input
                   type="email"
                   name="email"
-                  id=""
+                  required="true"
                   class="form-control"
                   placeholder="Enter You E-mail"
                 />
               </div>
-              <div class="form-group mb-3 password">
+              <div class="password form-group mb-3">
                 <label for="password" class="mb-2">Password</label>
                 <input
                   type="password"
                   name="password"
-                  id=""
+                  required="true"
                   class="form-control"
                   placeholder="Enter Your Password"
                 />
                 <i class="fas fa-eye"></i>
               </div>
-              <div class="form-group mb-3 password">
+              <div class="password form-group mb-3">
                 <label for="password" class="mb-2">Rewrite Password</label>
                 <input
                   type="password"
                   name="rePassword"
-                  id=""
+                  required="true"
                   class="form-control"
                   placeholder="Rewrite Your Password"
                 />
                 <i class="fas fa-eye"></i>
               </div>
-              <div class="form-group mb-3">
+              <div class="image form-group mb-3">
                 <label for="file" class="mb-2">Select Profile Img</label>
                 <input
                   type="file"
-                  name="imgFile"
-                  id=""
+                  name="image"
+                  required="true"
                   class="form-control"
-                  accept="image/*"
                 />
               </div>
               <div class="form-group mt-5 text-center button">
                 <input
                   type="submit"
                   name="send"
-                  id=""
                   class="btn btn-dark"
                   value="Start Chatting"
                 />
@@ -127,5 +129,6 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- main js file -->
     <script src="assets/js/show-hide-password.js"></script>
+    <script src="assets/js/signup.js"></script>
   </body>
 </html>

@@ -30,6 +30,10 @@ a {
   text-decoration: none;
 }
 
+:is(.sign-up, .users, .login) .wrapper {
+  padding: 20px;
+}
+
 .wrapper header {
   padding: 20px 20px 0 20px;
   margin-bottom: 10px;
@@ -165,7 +169,7 @@ a {
   overflow-y: auto;
 }
 
-.wrapper .usersList::-webkit-scrollbar {
+:is(.chat-box, .usersList)::-webkit-scrollbar {
   width: 0;
 }
 
@@ -232,7 +236,68 @@ a {
 .chat-box {
   height: 500px;
   background-color: #f7f7f7;
-  padding: 10px 30px 20px 30px;
+  padding: 10px 20px 20px 20px;
+  overflow-y: auto;
   box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
     inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+
+.chat-box .chat {
+  margin: 15px 0;
+}
+
+.chat-box .chat p {
+  word-wrap: break-word;
+  padding: 8px 16px;
+  box-shadow: 0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
+}
+
+.chat-box .sending {
+  display: flex;
+}
+
+.sending .details p {
+  background-color: #333;
+  color: #fff;
+  border-radius: 18px 18px 0 18px;
+  max-width: calc(100% - 130px);
+  margin-left: auto;
+}
+
+.chat-box .receiving {
+  display: flex;
+  align-items: flex-end;
+}
+
+.receiving img {
+  height: 35px;
+  min-width: 35px;
+  border-radius: 50%;
+  flex: 1;
+}
+
+.receiving .details p {
+  background-color: #fff;
+  border-radius: 18px 18px 18px 0;
+  margin-left: 10px;
+  max-width: calc(100% - 130px);
+  margin-right: auto;
+}
+
+.sendingForm {
+  padding: 10px;
+}
+
+.sendingForm input {
+  border-radius: 5px 0 0 5px;
+}
+
+.sendingForm button {
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
 }

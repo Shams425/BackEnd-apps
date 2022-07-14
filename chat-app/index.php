@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
+    
     <div class="container">
       <div class="row">
         <section class="contentContainer sign-up">

@@ -1,144 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat app</title>
+<?php
+  session_start();
+  if (!isset($_SESSION['unique_id'])) {
+      header('location: login.php');
+  }
+  ?>
 
-    <!-- font awesome library -->
-    <link rel="stylesheet" href="../assets/css/all.min.css" />
-    <!-- bootstrap library -->
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+<?php include_once "../assets/php/header.php"; ?>
 
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<body>
+  <div class="container">
+    <div class="row">
+      <section class="contentContainer chat-area">
+        <div class="wrapper">
+          <header>
+            <!-- include the database -->
+            <?php
+              include_once "../assets/php/config.php";
+  $user_id = mysqli_real_escape_string($data_base, $_GET['unique_id']);
+  $sql = mysqli_query($data_base, "SELECT * FROM users WHERE unique_id = {$user_id}");
+  $acc_sql = mysqli_query($data_base, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
 
-    <!-- main css file -->
-    <link rel="stylesheet" href="../assets/css/main.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <section class="contentContainer chat-area">
-          <div class="wrapper">
-            <header>
-              <div class="content">
-                <a href="#">
-                  <i class="fas fa-arrow-left"></i>
-                </a>
+  if (mysqli_num_rows($sql) > 0) {
+      $row = mysqli_fetch_assoc($sql);
+  }
+  if (mysqli_num_rows($acc_sql) > 0) {
+      $acc_row = mysqli_fetch_assoc($acc_sql);
+  }
+  ?>
+            <div class="content">
+              <a href="users.php">
+                <i class="fas fa-arrow-left"></i>
+              </a>
 
-                <!-- profile picture -->
-                <img src="../assets/images/profile-4.jpg" alt="" />
+              <!-- profile picture -->
+              <img
+                src="../assets/php/images/<?php echo $row['img']; ?>" />
 
-                <div class="details">
-                  <span>Chatting room</span>
-                  <p>Active now</p>
-                </div>
-              </div>
-            </header>
-
-            <!-- chat messages part -->
-            <div class="chat-box">
-              <div class="chat sending">
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat receiving">
-                <img src="../assets/images/profile-3.jpg" alt="" />
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    nostrum ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat sending">
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat receiving">
-                <img src="../assets/images/profile-3.jpg" alt="" />
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    nostrum ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat sending">
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat receiving">
-                <img src="../assets/images/profile-3.jpg" alt="" />
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    nostrum ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat sending">
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    ducimus eius! Consequuntur.
-                  </p>
-                </div>
-              </div>
-              <div class="chat receiving">
-                <img src="../assets/images/profile-3.jpg" alt="" />
-                <div class="details">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    nostrum ducimus eius! Consequuntur.
-                  </p>
-                </div>
+              <div class="details">
+                <span>
+                  <?php echo $row['first_name']. " " . $row['last_name']; ?>
+                </span>
+                <p>
+                  <?php echo $row['status']?>
+                </p>
               </div>
             </div>
+          </header>
 
-            <!-- sending message form -->
-            <form action="#" method="post" class="sendingForm" name="messages">
-              <div class="sendContainer d-flex">
-                <input
-                  type="text"
-                  name="sendMessages"
-                  id=""
-                  class="form-control"
-                  placeholder="Type your message here ..."
-                />
-                <button class="btn btn-dark">
-                  <i class="fab fa-telegram-plane"></i>
-                </button>
-              </div>
-            </form>
+          <!-- chat messages part -->
+          <div class="chat-box">
           </div>
-        </section>
-      </div>
+
+          <!-- sending message form -->
+          <form action="#" method="POST" class="sendingForm" name="messages">
+            <div class="sendContainer d-flex">
+              <!-- these 2 inputs are hidden, they handle the sender & receiver -->
+              <input type="text" name="sender" id="" class="sender_id" value=<?php echo $_SESSION['unique_id'];?>
+              hidden="true">
+              <input type="text" name="receiver" id="" class="receiver_id" value=<?php echo $user_id;?> hidden="true">
+
+              <input type="text" name="message" id="" class="form-control msg"
+                placeholder="Type your message here ..." />
+              <button class="btn btn-dark send">
+                <i class="fab fa-telegram-plane"></i>
+              </button>
+            </div>
+          </form>
+      </section>
     </div>
+  </div>
 
-    <!-- external library -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+  <!-- external library -->
+  <script src="../assets/js/bootstrap.min.js"></script>
 
-    <!-- main js file -->
-    <script src="../assets/js/main.js"></script>
-  </body>
+  <!-- main js file -->
+  <script src="../assets/js/chat.js"></script>
+</body>
+
 </html>

@@ -1,7 +1,6 @@
 const form = document.querySelector(".sign-up form");
 const continueBtn = form.querySelector(".button input");
 const errorMessage = form.querySelector(".alert");
-const successMessage = form.querySelector(".alert-info");
 
 form.onsubmit = (e) => e.preventDefault();
 
@@ -13,13 +12,9 @@ continueBtn.onclick = () => {
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
-        console.log("hello world");
-        console.log(errorMessage);
         let data = xhr.response;
-        console.log(data.toString());
         if (data === "success") {
-          successMessage.textContent = data;
-          successMessage.style.display = "block";
+          location.href = "pages/users.php";
         } else {
           errorMessage.textContent = data;
           errorMessage.style.display = "block";

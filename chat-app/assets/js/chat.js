@@ -17,6 +17,9 @@ sendBtn.onclick = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         messageFiled.value = "";
+        if (!chatBox.classList.contains("active")) {
+          scrollToBottom();
+        }
       }
     }
   };
@@ -25,7 +28,7 @@ sendBtn.onclick = () => {
   xhr.send(formData);
 };
 
-window.onload = () => {
+setInterval(() => {
   // Ajax request for showing the messages
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "../assets/php/get-chat.php", true);
@@ -34,10 +37,25 @@ window.onload = () => {
       if (xhr.status === 200) {
         let data = xhr.response;
         chatBox.innerHTML = data;
+        if (!chatBox.classList.contains("active")) {
+          scrollToBottom();
+        }
       }
     }
   };
   //sending through Ajax to insert.php
   let formData = new FormData(form);
   xhr.send(formData);
+}, 500);
+
+//add class to chat-box in order to start/stop scroll to bottom
+chatBox.onmouseenter = () => {
+  chatBox.classList.add("active");
 };
+chatBox.onmouseleave = () => {
+  chatBox.classList.remove("active");
+};
+
+function scrollToBottom() {
+  chatBox.scrollTop = chatBox.scrollHeight;
+}

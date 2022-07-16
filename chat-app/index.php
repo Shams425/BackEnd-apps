@@ -22,6 +22,14 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
+<!-- let the user directly login to his account if he isn't logout before -->
+<?php
+  session_start();
+if (isset($_SESSION['unique_id'])) {
+    header('location: pages/users.php');
+}
+?>
+
 <body>
   <div class="container">
     <div class="row">

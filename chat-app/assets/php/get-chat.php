@@ -7,7 +7,8 @@
       $incoming_id = mysqli_real_escape_string($data_base, $_POST['receiver']);
       $output = "";
 
-      $sql = "SELECT * FROM chat_messages 
+      $sql = "SELECT * FROM chat_messages
+              LEFT JOIN users ON users.unique_id = chat_messages.receiver_id 
               WHERE 
                 (sender_id = {$outgoing_id} 
                 AND 
@@ -29,7 +30,7 @@
                               </div>';
               } else { //this means that he is the receive
                   $output .= '<div class="chat receiving">
-                            <img src="../php/images/1657657636wallpaperflare.com_wallpaper(22).jpg" />
+                            <img src="../assets/php/images/'. $row['img'] .'"  />
                             <div class="details">
                               <p>' . $row['msg'] . '</p>
                             </div>

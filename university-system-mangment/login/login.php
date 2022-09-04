@@ -1,7 +1,7 @@
 <?php 
  //PHP Starts Here
   session_start();
-  require_once "../connection/connection.php"; 
+  require_once "../config/config.php"; 
   $message="Email Or Password Does Not Match";
   if(isset($_POST["btnLogin"]))
   {

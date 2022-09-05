@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	if (!$_SESSION["LoginAdmin"])
-	{
+	if (!$_SESSION["LoginAdmin"]) {
 		header('location:../login/login.php');
 	}
-		require_once "../connection/connection.php";
+
+	require_once "../config/config.php";
 ?>
 
 <title>Admin - ICBS</title>
@@ -33,7 +33,10 @@
 										<th>Room No</th>
 									</tr>
 									<?php  
-										$query="SELECT * from time_table AS tt INNER JOIN weekdays AS wd ON tt.day = wd.day_id";
+										$query="SELECT * from time_table AS tt 
+                    INNER JOIN 
+                      weekdays AS wd ON tt.day = wd.day_id
+                    ";
 
 										$run=mysqli_query($con,$query);
 										while($row = mysqli_fetch_array($run)) {

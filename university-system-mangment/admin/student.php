@@ -125,7 +125,7 @@
 ?>
 <!--*********************** PHP code end from here for data insertion into database ******************************* -->
  
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Admin - Register Student</title>
@@ -194,69 +194,68 @@
 								  		<div class="row">
 											<div class="col-md-4">
 											    <div class="form-group">
-											        <label for="exampleInputEmail1">Course which you want?: </label>
-											        <select class="browser-default custom-select" name="course_code">
-													    <option >Select Course</option>
-													    <?php
-															$query="select course_code from courses";
-															$run=mysqli_query($con,$query);
-															while($row=mysqli_fetch_array($run)) {
-															 echo	"<option value=".$row['course_code'].">".$row['course_code']."</option>";
-															}
-														?>
-													</select>
+                            <label for="exampleInputEmail1">Course which you want?: </label>
+                            <select class="browser-default custom-select" name="course_code">
+                              <option >Select Course</option>
+                                <?php
+                                  $query="select course_code from courses";
+                                  $run=mysqli_query($con,$query);
+                                  while($row=mysqli_fetch_array($run)) {
+                                  echo	"<option value=".$row['course_code'].">".$row['course_code']."</option>";
+                                  }
+                                ?>
+													  </select>
 											    </div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-												    <label for="exampleInputPassword1">Select Session:</label>
-												    <select class="browser-default custom-select" name="session">
-													    <option >Select Session</option>
+                          <label for="exampleInputPassword1">Select Session:</label>
+                          <select class="browser-default custom-select" name="session">
+                            <option >Select Session</option>
 													    <?php
-															$query="select session from sessions";
-															$run=mysqli_query($con,$query);
-															while($row=mysqli_fetch_array($run)) {
-															 echo	"<option value=".$row['session'].">".$row['session']."</option>";
-															}
-														?>
+                                $query="select session from sessions";
+                                $run=mysqli_query($con,$query);
+                                while($row=mysqli_fetch_array($run)) {
+                                echo	"<option value=".$row['session'].">".$row['session']."</option>";
+                                }
+														  ?>
 													</select>
-
-											    </div>
+                        </div>
 											</div>
 											<div class="col-md-4">
 												<div class="form-group">
-												    <label for="exampleInputPassword1">Your Profile Image:</label>
-												    <input type="file" name="profile_image" placeholder="Student Age" class="form-control">
-											    </div>
+                          <label for="exampleInputPassword1">Your Profile Image:</label>
+                          <input type="file" name="profile_image" placeholder="Student Age" class="form-control">
+                        </div>
 											</div>
 								  		</div>
 								  		<div class="row">
-											<div class="col-md-4">
+											  <div class="col-md-4">
 											    <div class="form-group">
-											        <label for="exampleInputEmail1">Prospectus Issude: </label>
-											        <select class="browser-default custom-select" name="prospectus_issued">
-													  <option>Select Option</option>
-													  <option value="Yes">Yes</option>
-													  <option value="No">No</option>
-													</select>
+                            <label for="exampleInputEmail1">Prospectus Issude: </label>
+                            <select class="browser-default custom-select" name="prospectus_issued">
+                              <option>Select Option</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+													  </select>
 											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Prospectus Amount Recvd:</label>
-												    <select class="browser-default custom-select" name="prospectus_amount">
-													  <option>Select Option</option>
-													  <option value="Yes">Yes</option>
-													  <option value="No">No</option>
-													</select>
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Form B:</label>
-												    <input type="text" name="form_b" class="form-control">
-											    </div>
-											</div>
+											  </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Prospectus Amount Recvd:</label>
+                              <select class="browser-default custom-select" name="prospectus_amount">
+                              <option>Select Option</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Form B:</label>
+                              <input type="text" name="form_b" class="form-control">
+                            </div>
+                        </div>
 								  		</div>
 								  		<div class="row">
 											<div class="col-md-4">
@@ -535,7 +534,7 @@
 				</div>	 
 			</div>
 		</main>
-		<script type="text/javascript" src="../bootstrap/js/jquery.min.js"></script>
-		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+		<script src="../bootstrap/js/jquery.min.js"></script>
+		<script src="../bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

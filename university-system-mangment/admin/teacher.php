@@ -75,30 +75,28 @@
 
  		$query=
     "INSERT INTO 
-      teacher_info(first_name,middle_name,last_name,email,phone_no,profile_image,teacher_status,application_status,cnic,dob,other_phone,gender,permanent_address,current_address,place_of_birth,matric_complition_date,matric_awarded_date,matric_certificate,fa_complition_date,fa_awarded_date,fa_certificate,ba_complition_date,ba_awarded_date,ba_certificate,ma_complition_date,ma_awarded_date,ma_certificate,hire_date)
+      teacher_info(first_name, middle_name, last_name,email, phone_no, profile_image, teacher_status, application_status,cnic, dob,other_phone, gender, permanent_address, current_address, place_of_birth, matric_complition_date, matric_awarded_date, matric_certificate, fa_complition_date, fa_awarded_date, fa_certificate, ba_complition_date, ba_awarded_date, ba_certificate, ma_complition_date, ma_awarded_date, ma_certificate, hire_date)
     values
-      ('$first_name','$middle_name','$last_name','$email','$phone_no','$profile_image','$teacher_status','$application_status','$cnic','$dob','$other_phone','$gender','$permanent_address','$current_address','$place_of_birth','$matric_complition_date','$matric_awarded_date','$matric_certificate','$fa_complition_date','$fa_awarded_date','$fa_certificate','$ba_complition_date','$ba_awarded_date','$ba_certificate','$ma_complition_date','$ma_awarded_date','$ma_certificate','$date')
+      ('$first_name', '$middle_name', '$last_name', '$email', '$phone_no', '$profile_image', '$teacher_status', '$application_status', '$cnic', '$dob', '$other_phone', '$gender', '$permanent_address', '$current_address', '$place_of_birth', '$matric_complition_date', '$matric_awarded_date', '$matric_certificate', '$fa_complition_date', '$fa_awarded_date', '$fa_certificate', '$ba_complition_date', '$ba_awarded_date', '$ba_certificate', '$ma_complition_date', '$ma_awarded_date', '$ma_certificate','$date')
     ";
  		$run=mysqli_query($con, $query);
+
  		if ($run) {
  			echo "Your Data has been submitted";
- 		}
- 		else {
+ 		} else {
  			echo "Your Data has not been submitted";
  		}
- 		$query2="insert into login(user_id,Password,Role)values('$email','$password','$role')";
+
+ 		$query2="INSERT INTO login(user_id,Password,Role) VALUES('$email','$password','$role')";
  		$run2=mysqli_query($con, $query2);
+
  		if ($run2) {
  			echo "Your Data has been submitted into login";
- 		}
- 		else {
+ 		} else {
  			echo "Your Data has not been submitted into login";
  		}
  	}
-?>
 
-
-<?php  
 	if (isset($_POST['btn_save2'])) {
 		$course_code=$_POST['course_code'];
 

@@ -108,21 +108,21 @@
 										while ($row=mysqli_fetch_array($run)) {
 											$count++;
 									    ?>
-											<form action="asign-single-student-subjects.php" method="post">
-												<tr>
-													<td><?php echo $i++ ?></td>
-													<td><?php echo $_POST['roll_no'] ?></td>
-													<input type="hidden" name="roll_no[]" value=<?php echo $_POST['roll_no'] ?> >
-													<td><?php echo $row['course_code'] ?></td>
-													<input type="hidden" name="course_code[]" value=<?php echo $row['course_code'] ?> >
-													<td><?php echo $row['subject_code'] ?></td>
-													<input type="hidden" name="subject_code[]" value=<?php echo $row['subject_code'] ?> >
-													<td><?php echo $row['subject_name'] ?></td>
-													<td><?php echo $row['semester'] ?></td>
-													<input type="hidden" name="semester[]" value=<?php echo $row['semester'] ?> >
-													<input type="hidden" name="count" value="<?php echo $count ?>">
-												</tr>
-								     <?php		
+                        <form action="asign-single-student-subjects.php" method="post">
+                          <tr>
+                            <td><?php echo $i++ ?></td>
+                            <td><?php echo $_POST['roll_no'] ?></td>
+                            <input type="hidden" name="roll_no[]" value=<?php echo $_POST['roll_no'] ?> >
+                            <td><?php echo $row['course_code'] ?></td>
+                            <input type="hidden" name="course_code[]" value=<?php echo $row['course_code'] ?> >
+                            <td><?php echo $row['subject_code'] ?></td>
+                            <input type="hidden" name="subject_code[]" value=<?php echo $row['subject_code'] ?> >
+                            <td><?php echo $row['subject_name'] ?></td>
+                            <td><?php echo $row['semester'] ?></td>
+                            <input type="hidden" name="semester[]" value=<?php echo $row['semester'] ?> >
+                            <input type="hidden" name="count" value="<?php echo $count ?>">
+                          </tr>
+								      <?php		
 									  }
 									}
 								?>

@@ -26,7 +26,7 @@
 	
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Student - Password</title>

@@ -26,11 +26,11 @@
 				<div class="text-center d-flex flex-wrap flex-md-nowrap pt-3 pb-2 mb-3 text-white admin-dashboard pl-3">
 					<h4 class="">Welcome To <?php $roll_no=$_SESSION['LoginStudent'];
 					$query="SELECT * FROM student_info WHERE roll_no = '$roll_no'";
-					$run=mysqli_query($con,$query);
+					$run=mysqli_query($con, $query);
 					while ($row=mysqli_fetch_array($run)) {
 						echo $row['first_name']." ".$row['middle_name']." ".$row['last_name'];
 					}
-					?> Dashboard </h4> </h4>
+					?> Dashboard </h4>
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-12 col-sm-12">
@@ -98,7 +98,14 @@
 										</tr>
 										<?php 
 											$roll_no=$_SESSION['LoginStudent'];
-											$query="SELECT * FROM student_fee INNER JOIN student_info ON student_fee.roll_no = student_info.roll_no WHERE student_fee.roll_no = '$roll_no'";
+											$query=
+                      "SELECT * FROM 
+                        student_fee 
+                      INNER JOIN 
+                        student_info ON student_fee.roll_no = student_info.roll_no 
+                      WHERE 
+                        student_fee.roll_no = '$roll_no'";
+                        
 											$run=mysqli_query($con,$query);
 											while ($row=mysqli_fetch_array($run)) { ?>
 											<tr class="text-center">
@@ -196,8 +203,8 @@
 												<td><?php echo $_SESSION['LoginStudent'] ?></td>
 												<td><?php echo $row1['attendance'] ? $row1['attendance'] : "0" ?></td>
 												<td><?php echo $row1['attendance_id']-$row1['attendance']?></td>
-												<?php $attendace =  $row1['attendance_id'] > 0 ? round(($row1['attendance']*100)/$row1['attendance_id'])."%" : "0%" ?>
-												<td> <?php echo $attendace ?> </td>
+												<?php $attendance =  $row1['attendance_id'] > 0 ? round(($row1['attendance']*100)/$row1['attendance_id'])."%" : "0%" ?>
+												<td> <?php echo $attendance ?> </td>
 											</tr>
 											<?php	
 											}

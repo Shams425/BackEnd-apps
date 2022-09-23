@@ -9,7 +9,8 @@
 		</div>
 		<div class="paragraph">
 			<p>
-				CHMSC provides a harmonious environment and learning opportunities  to its students regardless of their gender, socioeconomic background, religious beliefs and regional differences.
+				CHMSC provides a harmonious environment and learning opportunities  to its students regardless of their gender, 
+				socioeconomic background, religious beliefs and regional differences.
 			</p>
 		</div>
 	<?php include('common/footer.php') ?>

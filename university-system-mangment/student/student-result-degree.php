@@ -404,7 +404,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=3 order By semester asc";
+                                    $que="SELECT * FROM course_subjects WHERE dept_id='1' AND semester=3 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";

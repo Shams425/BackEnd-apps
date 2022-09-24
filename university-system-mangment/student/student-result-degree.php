@@ -380,7 +380,13 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='3' and sc.roll_no='$roll_no'";
+                                    $que=
+                                    "SELECT * FROM 
+                                        student_courses AS sc 
+                                    INNER JOIN 
+                                        sessions AS s ON sc.session = s.session_id 
+                                    WHERE 
+                                        sc.semester='3' AND sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];

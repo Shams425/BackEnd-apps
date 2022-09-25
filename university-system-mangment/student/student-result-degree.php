@@ -409,45 +409,45 @@
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
                                         $grade = "";
-                                ?>
-                                <tr>
-                                    <td><?php echo $row['subject_code'] ?></td>
-                                    <td><?php echo $row['subject_name'] ?></td>
-                                    <td><?php echo $row['credit_hours'] ?></td>
-                                    <?php
-                                        $subject = $row['subject_code'];
-                                        $result_query = 
-                                        "SELECT * FROM 
-                                            class_result AS cr 
-                                        INNER JOIN 
-                                            student_courses AS cs ON cr.subject_code = cs.subject_code AND cr.roll_no=cs.roll_no 
-                                        WHERE 
-                                            cr.subject_code='$subject' AND cr.roll_no='$roll_no'";
-                                            
-                                        $run_result = mysqli_query($con, $result_query);
-                                        while($result_row = mysqli_fetch_array($run_result)){
-                                            $obtain_marks = $result_row['obtain_marks'];
-                                            $assign_date = date("y", strtotime($result_row['assign_date']));
-                                        }
-                                    ?>
-                                    <td><?php echo $obtain_marks ?></td>
-                                    <?php
-                                        $gpa = gpa($obtain_marks, $assign_date); 
-                                        $grade = grade($obtain_marks, $assign_date);
-                                    ?>
-                                    <td><?php echo $gpa; ?></td>
-                                    <td><?php echo $grade; ?></td>
-                                    <?php
-                                        $total_ch = $total_ch + $row['credit_hours'];
-                                        if($obtain_marks>=50){
-                                            $quality_points = $gpa * $row['credit_hours'];
-                                            $total_quality_points = $total_quality_points + $quality_points;
-                                            $completed_ch = $completed_ch + $row['credit_hours'];
-                                        }
-                                    ?>
-                                </tr>
-                                <?php
-                                $obtain_marks = "";
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $row['subject_code'] ?></td>
+                                            <td><?php echo $row['subject_name'] ?></td>
+                                            <td><?php echo $row['credit_hours'] ?></td>
+                                            <?php
+                                                $subject = $row['subject_code'];
+                                                $result_query = 
+                                                "SELECT * FROM 
+                                                    class_result AS cr 
+                                                INNER JOIN 
+                                                    student_courses AS cs ON cr.subject_code = cs.subject_code AND cr.roll_no=cs.roll_no 
+                                                WHERE 
+                                                    cr.subject_code='$subject' AND cr.roll_no='$roll_no'";
+
+                                                $run_result = mysqli_query($con, $result_query);
+                                                while($result_row = mysqli_fetch_array($run_result)){
+                                                    $obtain_marks = $result_row['obtain_marks'];
+                                                    $assign_date = date("y", strtotime($result_row['assign_date']));
+                                                }
+                                            ?>
+                                            <td><?php echo $obtain_marks ?></td>
+                                            <?php
+                                                $gpa = gpa($obtain_marks, $assign_date); 
+                                                $grade = grade($obtain_marks, $assign_date);
+                                            ?>
+                                            <td><?php echo $gpa; ?></td>
+                                            <td><?php echo $grade; ?></td>
+                                            <?php
+                                                $total_ch = $total_ch + $row['credit_hours'];
+                                                if($obtain_marks>=50){
+                                                    $quality_points = $gpa * $row['credit_hours'];
+                                                    $total_quality_points = $total_quality_points + $quality_points;
+                                                    $completed_ch = $completed_ch + $row['credit_hours'];
+                                                }
+                                            ?>
+                                        </tr>
+                                        <?php
+                                         $obtain_marks = "";
                                     } 
                                 ?>
                                 <tr>
@@ -475,11 +475,18 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='4' and sc.roll_no='$roll_no'";
+                                    $que=
+                                    "SELECT * FROM 
+                                      student_courses sc 
+                                    INNER JOIN 
+                                      sessions AS s ON sc.session = s.session_id 
+                                    WHERE 
+                                      sc.semester='4' AND sc.roll_no='$roll_no'";
+
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
-                                        $assign_date = date("Y", strtotime($row['assign_date']));;
+                                        $assign_date = date("Y", strtotime($row['assign_date']));
                                     }
                                 ?>
                                     <th colspan="2"><div class="d-flex"><span class="mr-5">Semester - 4</span><span class="ml-5"><?php echo  $assign_date. " ".$session; ?> </span></div></th>

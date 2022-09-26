@@ -766,7 +766,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query= "SELECT  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -848,7 +848,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query  = "SELECT  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];

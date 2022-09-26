@@ -307,7 +307,7 @@
                                   $total_ch = 0;
                                   $quality_points = 0;
                                   $total_quality_points = 0;
-                                  $que="select * from course_subjects where dept_id='1' and semester=2 order By semester asc";
+                                  $que="select * from course_subjects where dept_id='1' and semester=2 ORDER BY semester ASC";
                                   $run=mysqli_query($con,$que);
                                   while ($row=mysqli_fetch_array($run)) {
                                     $gpa = "";
@@ -500,43 +500,43 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=4 order By semester asc";
+                                    $que="SELECT * FROM course_subjects WHERE dept_id='1' and semester=4 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
                                         $grade = "";
-                                ?>
-                                <tr>
-                                    <td><?php echo $row['subject_code'] ?></td>
-                                    <td><?php echo $row['subject_name'] ?></td>
-                                    <td><?php echo $row['credit_hours'] ?></td>
-                                    <?php
-                                        $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
-                                        $run_result = mysqli_query($con, $result_query);
-                                        while($result_row = mysqli_fetch_array($run_result)){
-                                            $obtain_marks = $result_row['obtain_marks'];
-                                            $assign_date = date("y", strtotime($result_row['assign_date']));
-                                        }
-                                    ?>
-                                    <td><?php echo $obtain_marks ?></td>
-                                    <?php
-                                        $gpa = gpa($obtain_marks, $assign_date); 
-                                        $grade = grade($obtain_marks, $assign_date);
-                                    ?>
-                                    <td><?php echo $gpa; ?></td>
-                                    <td><?php echo $grade; ?></td>
-                                    <?php
-                                        $total_ch = $total_ch + $row['credit_hours'];
-                                        if($obtain_marks>=50){
-                                            $quality_points = $gpa * $row['credit_hours'];
-                                            $total_quality_points = $total_quality_points + $quality_points;
-                                            $completed_ch = $completed_ch + $row['credit_hours'];
-                                        }
-                                    ?>
-                                </tr>
-                                <?php
-                                $obtain_marks = "";
+                                      ?>
+                                      <tr>
+                                        <td><?php echo $row['subject_code'] ?></td>
+                                        <td><?php echo $row['subject_name'] ?></td>
+                                        <td><?php echo $row['credit_hours'] ?></td>
+                                        <?php
+                                            $subject = $row['subject_code'];
+                                            $result_query = "SELECT * FROM class_result AS cr INNER JOIN student_courses AS cs ON cr.subject_code = cs.subject_code AND cr.roll_no=cs.roll_no WHERE cr.subject_code='$subject' AND cr.roll_no='$roll_no'";
+                                            $run_result = mysqli_query($con, $result_query);
+                                            while($result_row = mysqli_fetch_array($run_result)){
+                                                $obtain_marks = $result_row['obtain_marks'];
+                                                $assign_date = date("y", strtotime($result_row['assign_date']));
+                                            }
+                                        ?>
+                                        <td><?php echo $obtain_marks ?></td>
+                                        <?php
+                                            $gpa = gpa($obtain_marks, $assign_date); 
+                                            $grade = grade($obtain_marks, $assign_date);
+                                        ?>
+                                        <td><?php echo $gpa; ?></td>
+                                        <td><?php echo $grade; ?></td>
+                                        <?php
+                                            $total_ch = $total_ch + $row['credit_hours'];
+                                            if($obtain_marks>=50){
+                                                $quality_points = $gpa * $row['credit_hours'];
+                                                $total_quality_points = $total_quality_points + $quality_points;
+                                                $completed_ch = $completed_ch + $row['credit_hours'];
+                                            }
+                                        ?>
+                                      </tr>
+                                      <?php
+                                      $obtain_marks = "";
                                     } 
                                 ?>
                                 <tr>
@@ -570,7 +570,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='5' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses AS sc INNER JOIN sessions AS s ON sc.session = s.session_id WHERE sc.semester='5' AND sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -588,7 +588,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=5 order By semester asc";
+                                    $que="SELECT * FROM course_subjects WHERE dept_id='1' AND semester=5 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -600,7 +600,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query = "SELECT * FROM class_result AS cr INNER JOIN student_courses cs ON cr.subject_code = cs.subject_code AND cr.roll_no=cs.roll_no WHERE cr.subject_code='$subject' AND cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -652,7 +652,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='6' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses sc INNER JOIN sessions s on sc.session = s.session_id where sc.semester='6' and sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -670,7 +670,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=6 order By semester asc";
+                                    $que="SELECT * FROM course_subjects WHERE dept_id='1' AND semester=6 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -682,7 +682,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query = "SELECT * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -736,7 +736,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='7' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses sc INNER JOIN sessions s on sc.session = s.session_id where sc.semester='7' and sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -754,7 +754,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=7 order By semester asc";
+                                    $que="SELECT * FROM course_subjects where dept_id='1' and semester=7 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -766,7 +766,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -818,7 +818,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='8' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses sc INNER JOIN sessions s on sc.session = s.session_id where sc.semester='8' and sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -836,7 +836,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=8 order By semester asc";
+                                    $que="SELECT * FROM course_subjects where dept_id='1' and semester=8 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -848,7 +848,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query  * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -902,7 +902,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='9' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses sc INNER JOIN sessions s on sc.session = s.session_id where sc.semester='9' and sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -920,7 +920,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=9 order By semester asc";
+                                    $que="SELECT * FROM course_subjects where dept_id='1' and semester=9 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -932,7 +932,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query = "SELECT * from class_result cr INNER JOIN student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];
@@ -984,7 +984,7 @@
                             <table class="w-100 table-elements table-six-tr"cellpadding="2">
                                 <tr class="pt-5 table-six text-white" style="height: 32px;">
                                 <?php
-                                    $que="select * from student_courses sc inner join sessions s on sc.session = s.session_id where sc.semester='10' and sc.roll_no='$roll_no'";
+                                    $que="SELECT * FROM student_courses sc INNER JOIN sessions s on sc.session = s.session_id where sc.semester='10' and sc.roll_no='$roll_no'";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $session = $row['session_name'];
@@ -1002,7 +1002,7 @@
                                     $total_ch = 0;
                                     $quality_points = 0;
                                     $total_quality_points = 0;
-                                    $que="select * from course_subjects where dept_id='1' and semester=10 order By semester asc";
+                                    $que="SELECT * FROM course_subjects where dept_id='1' and semester=10 ORDER BY semester ASC";
                                     $run=mysqli_query($con,$que);
                                     while ($row=mysqli_fetch_array($run)) {
                                         $gpa = "";
@@ -1014,7 +1014,7 @@
                                     <td><?php echo $row['credit_hours'] ?></td>
                                     <?php
                                         $subject = $row['subject_code'];
-                                        $result_query = "select * from class_result cr inner join student_courses cs on cr.subject_code = cs.subject_code and cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
+                                        $result_query = "SELECT * from class_result AS cr INNER JOIN student_courses AS cs ON cr.subject_code = cs.subject_code AND cr.roll_no=cs.roll_no where cr.subject_code='$subject' and cr.roll_no='$roll_no'";
                                         $run_result = mysqli_query($con, $result_query);
                                         while($result_row = mysqli_fetch_array($run_result)){
                                             $obtain_marks = $result_row['obtain_marks'];

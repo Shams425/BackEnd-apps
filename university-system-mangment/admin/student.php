@@ -131,7 +131,7 @@
 		<title>Admin - Register Student</title>
 	</head>
 	<body>
-		<?php include('../common/common-header.php') ?>
+		<?php include('../common/header.php') ?>
 		<?php include('../common/admin-sidebar.php') ?>
 		<main role="main" class="col-xl-10 col-lg-9 col-md-8 ml-sm-auto px-md-4 w-100">
 			<div class="sub-main">
@@ -389,16 +389,12 @@
 											    </div>
 											</div>
 								  		</div>
-								  		<!-- _________________________________________________________________________________
-								  											Hidden Values are here
-								  		_________________________________________________________________________________ -->
+								  		
 								  		<div>
 											<input type="hidden" name="password" value="student123*">
 											<input type="hidden" name="role" value="Student">
 								  		</div>
-								  		<!-- _________________________________________________________________________________
-								  											Hidden Values are end here
-								  		_________________________________________________________________________________ -->
+								  		
 								  		<div class="modal-footer">
 						   		            <input type="submit" class="btn btn-primary" name="btn_save">
 		      								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -65,7 +65,7 @@
 		<title>Admin - Teacher Salary</title>
 	</head>
 	<body>
-		<?php include('../common/common-header.php') ?>
+		<?php include('../common/header.php') ?>
 		<?php include('../common/admin-sidebar.php') ?>
 		<main role="main" class="col-xl-10 col-lg-9 col-md-8 ml-sm-auto px-md-4 w-100">
 			<div class="sub-main">

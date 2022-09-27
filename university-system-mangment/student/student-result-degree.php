@@ -3,7 +3,7 @@
 	if (!$_SESSION["LoginStudent"]) {
 		header('location:../login/login.php');
 	}
-		require_once "../config/config.php";
+    require_once "../config/config.php";
 ?>
 
 <?php

@@ -131,7 +131,7 @@
 
   <title>Student - Transcript</title>
 
-<?php include "../common/common-header.php"?>
+<?php include "../common/header.php"?>
     <div class="container mt-4">
         <div class="text-danger text-center m-auto">
             <img src="../Images/icbs_logo.png" alt="" width="100" height="100">

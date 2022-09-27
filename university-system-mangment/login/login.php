@@ -37,7 +37,7 @@
     <title>Login - CHMSC</title>
   </head>
   <body class="login-background">
-      <?php include('../common/common-header.php') ?>
+      <?php include('../common/header.php') ?>
       <div class="login-div mt-3 rounded">
         <div class="logo-div text-center">  
         <img src="../Images/chmsc.png" alt="" class="align-items-center" width="100" height="100">

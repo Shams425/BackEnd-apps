@@ -5,10 +5,12 @@
 		<link rel="shortcut icon" href="./Images/icbs_logo.png" type="image/x-icon">
 		<!-- external library -->
 		<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="./assets/css/footer.css">
 		<link rel="stylesheet" href="./assets/css/all.min.css">
 		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
+		
+		<!-- footer stylesheet -->
+		<link rel="stylesheet" href="./assets/css/footer.css">
+		
 		<!-- main css file -->
 		<link rel="stylesheet" href="./assets/css/main.css">
 	</head>

@@ -75,7 +75,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../admin/manage-accounts.php">
+          <a class="nav-link" href="../admin/manage-account.php">
             <span data-feather="layers"></span>
             <i class="fa fa-key mr-2" aria-hidden="true"></i> Manage Account
           </a>

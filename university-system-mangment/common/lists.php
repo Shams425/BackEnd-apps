@@ -5,7 +5,11 @@
         To do lists
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne" 
+      class="accordion-collapse collapse show" 
+      aria-labelledby="headingOne" 
+      data-bs-parent="#accordionExample"
+    >
       <div class="accordion-body">
       </div>
     </div>

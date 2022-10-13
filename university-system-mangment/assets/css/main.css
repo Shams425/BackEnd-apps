@@ -86,7 +86,7 @@ h4 {
   border: none;
 } */
 
-.show-btn {
+/* .show-btn {
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: rgb(214, 209, 209);
@@ -94,7 +94,7 @@ h4 {
   color: rgb(121, 117, 117);
   border-radius: 5px;
   border: 1px solid rgb(11, 132, 148);
-}
+} */
 
 .show-btn:hover {
   background-color: #2c3e50;
